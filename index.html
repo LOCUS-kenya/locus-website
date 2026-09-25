@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Locus | Deliveries & Errands</title>
+
+    <meta
+        name="description"
+        content="Locus provides reliable delivery and errand services for individuals and businesses."
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+<div class="logo">
+    <img src="locus logo.png" alt="Locus Logo">
+    <span class="logo-text">LOCUS</span>
+
+</div>
+
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#how-it-works">How It Works</a>
+
+            <a href="#business">Business</a>
+
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="nav-button" onclick="bookDelivery()">
+            Get a Delivery
+        </button>
+
+        <button class="menu-button" onclick="toggleMenu()">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- ================= MOBILE MENU ================= -->
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#services" onclick="toggleMenu()">Services</a>
+        <a href="#how-it-works" onclick="toggleMenu()">How It Works</a>
+        <a href="#business" onclick="toggleMenu()">Business</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+
+        <button onclick="bookDelivery()">
+            Get a Delivery
+        </button>
+
+    </div>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <span></span>
+                    Delivering across Nairobi
+                </div>
+
+                <h1>
+                    Deliveries.<br>
+                    <span>Errands.</span><br>
+                    Simplified.
+                </h1>
+
+                <p>
+                    Reliable delivery and errand services for individuals
+                    and businesses. Request a rider and let Locus handle
+                    the journey.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button class="primary-button" onclick="bookDelivery()">
+                        Book a Delivery
+                        <span>→</span>
+                    </button>
+
+                    <button class="secondary-button" onclick="becomeRider()">
+                        Become a Rider
+                    </button>
+
+                </div>
+
+                <div class="hero-stats">
+
+                    <div>
+                        <strong>Fast</strong>
+                        <small>Dispatch</small>
+                    </div>
+
+                    <div>
+                        <strong>Secure</strong>
+                        <small>Deliveries</small>
+                    </div>
+
+                    <div>
+                        <strong>Reliable</strong>
+                        <small>Service</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO VISUAL -->
+
+            <div class="hero-visual">
+
+                <div class="glow"></div>
+
+                <div class="delivery-card">
+
+                    <div class="card-top">
+
+                        <div>
+                            <small>LOCUS DELIVERY</small>
+                            <h3>On the way</h3>
+                        </div>
+
+                        <div class="status-dot"></div>
+
+                    </div>
+
+
+                    <div class="map-area">
+
+                        <div class="map-line"></div>
+
+                        <div class="map-point pickup">
+                            <span></span>
+                        </div>
+
+                        <div class="map-point destination">
+                            <span></span>
+                        </div>
+
+                        <div class="bike-icon">
+                            🏍️
+                        </div>
+
+                    </div>
+
+
+                    <div class="delivery-info">
+
+                        <div>
+                            <small>Pickup</small>
+                            <strong>Your location</strong>
+                        </div>
+
+                        <div>
+                            <small>Destination</small>
+                            <strong>Customer</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SERVICES ================= -->
+
+        <section class="section" id="services">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    WHAT WE DO
+                </span>
+
+                <h2>
+                    One service.<br>
+                    <span>Many possibilities.</span>
+                </h2>
+
+                <p>
+                    From everyday deliveries to important business errands,
+                    Locus helps you move what matters.
+                </p>
+
+            </div>
+
+<div class="services-grid">
+
+    <!-- PARCEL DELIVERY -->
+    <article class="service-card">
+
+        <div class="service-icon">
+            📦
+        </div>
+
+        <h3>Parcel Delivery</h3>
+
+        <p>
+            Send parcels, documents and packages around Nairobi
+            with reliable riders.
+        </p>
+
+        <button
+            class="service-link"
+            onclick="showService('parcel')"
+        >
+            Learn more →
+        </button>
+
+    </article>
+
+
+    <!-- ERRANDS -->
+    <article class="service-card featured">
+
+        <div class="service-icon">
+            🛍️
+        </div>
+
+        <h3>Errands & Shopping</h3>
+
+        <p>
+            Need something bought, collected or delivered?
+            Let Locus handle the errand.
+        </p>
+
+        <button
+            class="service-link"
+            onclick="showService('errands')"
+        >
+            Learn more →
+        </button>
+
+    </article>
+
+
+    <!-- BUSINESS -->
+    <article class="service-card">
+
+        <div class="service-icon">
+            🏢
+        </div>
+
+        <h3>Business Deliveries</h3>
+
+        <p>
+            Reliable courier support for businesses,
+            shops and organizations.
+        </p>
+
+        <button
+            class="service-link"
+            onclick="showService('business')"
+        >
+            For businesses →
+        </button>
+
+    </article>
+
+
+    <!-- LAUNDRY -->
+    <article class="service-card">
+
+        <div class="service-icon">
+            👕
+        </div>
+
+        <h3>Laundry Delivery</h3>
+
+        <p>
+            Convenient pickup and drop-off services for
+            laundry businesses and their customers.
+        </p>
+
+        <button
+            class="service-link"
+            onclick="showService('laundry')"
+        >
+            Learn more →
+        </button>
+
+    </article>
+
+</div>
+
+<!-- ================= SERVICE DETAILS ================= -->
+
+<div class="service-modal" id="serviceModal">
+
+    <div class="service-modal-content">
+
+        <button
+            class="close-modal"
+            onclick="closeService()"
+        >
+            ×
+        </button>
+
+        <div class="modal-icon" id="modalIcon">
+            📦
+        </div>
+
+        <span class="section-label" id="modalLabel">
+            LOCUS SERVICE
+        </span>
+
+        <h2 id="modalTitle">
+            Parcel Delivery
+        </h2>
+
+        <p id="modalDescription">
+            Send parcels, documents and packages around Nairobi
+            with reliable Locus riders.
+        </p>
+
+        <div class="modal-list" id="modalList">
+        </div>
+
+        <button
+            class="primary-button"
+            onclick="bookDelivery()"
+        >
+            Request This Service
+            <span>→</span>
+        </button>
+
+    </div>
+
+</div>
+
+        </section>
+
+
+        <!-- ================= HOW IT WORKS ================= -->
+
+        <section class="section how-section" id="how-it-works">
+
+            <div class="section-heading center">
+
+                <span class="section-label">
+                    HOW IT WORKS
+                </span>
+
+                <h2>
+                    Moving things is<br>
+                    <span>easy with Locus.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <div>
+                        <h3>Request</h3>
+                        <p>
+                            Tell us what you need delivered
+                            or what errand you need handled.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <div>
+                        <h3>Get a Price</h3>
+                        <p>
+                            Locus calculates your delivery
+                            price based on the journey.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <div>
+                        <h3>Rider Dispatched</h3>
+                        <p>
+                            A Locus rider receives and accepts
+                            your delivery request.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        04
+                    </div>
+
+                    <div>
+                        <h3>Delivered</h3>
+                        <p>
+                            Your item reaches its destination
+                            safely and securely.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BUSINESS ================= -->
+
+        <section class="business-section" id="business">
+
+            <div class="business-content">
+
+                <span class="section-label">
+                    LOCUS FOR BUSINESS
+                </span>
+
+                <h2>
+                    Your business moves.<br>
+                    <span>We move with it.</span>
+                </h2>
+
+                <p>
+                    Get dependable delivery support for your
+                    business. From regular deliveries to urgent
+                    requests, Locus can become an extension of
+                    your operations.
+                </p>
+
+                <div class="business-features">
+
+                    <div>
+                        <span>✓</span>
+                        Regular business deliveries
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Dedicated courier support
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Flexible business arrangements
+                    </div>
+
+                </div>
+
+                <button class="primary-button" onclick="businessContact()">
+                    Talk to Locus
+                    <span>→</span>
+                </button>
+
+            </div>
+
+
+            <div class="business-card">
+
+                <div class="business-card-header">
+                    <span>LOCUS</span>
+                    <span>BUSINESS</span>
+                </div>
+
+                <div class="business-card-line"></div>
+
+                <div class="business-card-content">
+
+                    <small>YOUR BUSINESS</small>
+
+                    <h3>
+                        Delivered<br>
+                        with confidence.
+                    </h3>
+
+                    <div class="mini-route">
+                        <span></span>
+                        <div></div>
+                        <span></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta-section">
+
+            <div>
+
+                <span class="section-label">
+                    READY TO REQUEST?
+                </span>
+
+                <h2>
+                    Let Locus handle<br>
+                    the journey.
+                </h2>
+
+            </div>
+
+            <button class="primary-button large" onclick="bookDelivery()">
+                Get a Delivery
+                <span>→</span>
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contact">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+               <div class="logo">
+    <img src="locus logo.png" alt="Locus Logo">
+</div>
+
+                <p>
+                    Deliveries and errands,<br>
+                    simplified.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Services</h4>
+
+                <a href="#services">Parcel Delivery</a>
+                <a href="#services">Errands</a>
+                <a href="#services">Business</a>
+                <a href="#services">Laundry</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Company</h4>
+
+                <a href="#home">About Locus</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#business">For Business</a>
+                <a href="#contact">Contact</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Contact</h4>
+
+                <a href="tel:0756857891">
+                    0756 857 891
+                </a>
+
+                <a href="mailto:locushaulkenya@gmail.com">
+                    locushaulkenya@gmail.com
+                </a>
+
+                <span>
+                    Nairobi, Kenya
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Locus. All rights reserved.
+            </span>
+
+            <span>
+                Deliveries • Errands • Business
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
