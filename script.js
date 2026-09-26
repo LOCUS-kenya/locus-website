@@ -2,7 +2,7 @@
 // LOCUS WHATSAPP SETTINGS
 // ==========================================
 
-const locusWhatsApp = "254180869616";s
+const locusWhatsApp = "254180869616";
 
 
 // ==========================================
@@ -67,8 +67,12 @@ function toggleMenu() {
 
     const menu = document.getElementById("mobileMenu");
 
-    menu.classList.toggle("active");
+    if (menu) {
+        menu.classList.toggle("active");
+    }
 }
+
+
 // ==========================================
 // LOCUS SERVICE INFORMATION
 // ==========================================
@@ -181,6 +185,13 @@ function showService(service) {
         return;
     }
 
+    const modal = document.getElementById("serviceModal");
+
+    if (!modal) {
+        console.error("Locus service modal was not found.");
+        return;
+    }
+
     document.getElementById("modalIcon").textContent =
         data.icon;
 
@@ -194,8 +205,7 @@ function showService(service) {
         data.description;
 
 
-    const list =
-        document.getElementById("modalList");
+    const list = document.getElementById("modalList");
 
     list.innerHTML = "";
 
@@ -214,10 +224,7 @@ function showService(service) {
     });
 
 
-    document
-        .getElementById("serviceModal")
-        .classList.add("active");
-
+    modal.classList.add("active");
 
     document.body.style.overflow = "hidden";
 }
@@ -229,9 +236,13 @@ function showService(service) {
 
 function closeService() {
 
-    document
-        .getElementById("serviceModal")
-        .classList.remove("active");
+    const modal = document.getElementById("serviceModal");
+
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.remove("active");
 
     document.body.style.overflow = "";
 }
@@ -241,15 +252,23 @@ function closeService() {
 // CLOSE WHEN CLICKING OUTSIDE
 // ==========================================
 
-document
-    .getElementById("serviceModal")
-    .addEventListener("click", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
 
-        if (event.target === this) {
-            closeService();
-        }
+    const modal = document.getElementById("serviceModal");
 
-    });
+    if (modal) {
+
+        modal.addEventListener("click", function(event) {
+
+            if (event.target === modal) {
+                closeService();
+            }
+
+        });
+
+    }
+
+});
 
 
 // ==========================================
