@@ -10,7 +10,6 @@ const locusWhatsApp = "254180869616";
 // ==========================================
 
 function bookDelivery() {
-
     const message =
         "Hello Locus 👋%0A%0A" +
         "I would like to book a delivery.%0A%0A" +
@@ -28,7 +27,6 @@ function bookDelivery() {
 // ==========================================
 
 function becomeRider() {
-
     const message =
         "Hello Locus 👋%0A%0A" +
         "I am interested in becoming a Locus rider.%0A%0A" +
@@ -46,7 +44,6 @@ function becomeRider() {
 // ==========================================
 
 function businessContact() {
-
     const message =
         "Hello Locus 👋%0A%0A" +
         "I am interested in Locus delivery services for my business.%0A%0A" +
@@ -64,7 +61,6 @@ function businessContact() {
 // ==========================================
 
 function toggleMenu() {
-
     const menu = document.getElementById("mobileMenu");
 
     if (menu) {
@@ -77,14 +73,11 @@ function toggleMenu() {
 // LOCUS SERVICE INFORMATION
 // ==========================================
 
-const serviceData = {
+window.locusServiceData = {
 
     parcel: {
-
         icon: "📦",
-
         label: "PARCEL DELIVERY",
-
         title: "Parcel Delivery",
 
         description:
@@ -98,16 +91,12 @@ const serviceData = {
             "Pickup and drop-off within Nairobi",
             "Delivery confirmation when the order is completed"
         ]
-
     },
 
 
     errands: {
-
         icon: "🛍️",
-
         label: "ERRANDS & SHOPPING",
-
         title: "Errands & Shopping",
 
         description:
@@ -121,16 +110,12 @@ const serviceData = {
             "Delivering items to your preferred location",
             "Useful for busy individuals and businesses"
         ]
-
     },
 
 
     business: {
-
         icon: "🏢",
-
         label: "BUSINESS DELIVERIES",
-
         title: "Business Deliveries",
 
         description:
@@ -144,16 +129,12 @@ const serviceData = {
             "Scheduled delivery arrangements",
             "Courier support that can grow with your business"
         ]
-
     },
 
 
     laundry: {
-
         icon: "👕",
-
         label: "LAUNDRY DELIVERY",
-
         title: "Laundry Delivery",
 
         description:
@@ -167,7 +148,6 @@ const serviceData = {
             "Convenient delivery within Nairobi",
             "A delivery partner for growing laundry businesses"
         ]
-
     }
 
 };
@@ -179,36 +159,40 @@ const serviceData = {
 
 function showService(service) {
 
-    const data = serviceData[service];
+    const data = window.locusServiceData[service];
 
     if (!data) {
+        console.error("Service not found:", service);
         return;
     }
 
     const modal = document.getElementById("serviceModal");
 
     if (!modal) {
-        console.error("Locus service modal was not found.");
+        console.error("serviceModal was not found in index.html");
         return;
     }
 
-    document.getElementById("modalIcon").textContent =
-        data.icon;
+    const modalIcon = document.getElementById("modalIcon");
+    const modalLabel = document.getElementById("modalLabel");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalList = document.getElementById("modalList");
 
-    document.getElementById("modalLabel").textContent =
-        data.label;
+    if (!modalIcon || !modalLabel || !modalTitle || !modalDescription || !modalList) {
+        console.error("One or more service modal elements are missing from index.html");
+        return;
+    }
 
-    document.getElementById("modalTitle").textContent =
-        data.title;
+    modalIcon.textContent = data.icon;
 
-    document.getElementById("modalDescription").textContent =
-        data.description;
+    modalLabel.textContent = data.label;
 
+    modalTitle.textContent = data.title;
 
-    const list = document.getElementById("modalList");
+    modalDescription.textContent = data.description;
 
-    list.innerHTML = "";
-
+    modalList.innerHTML = "";
 
     data.points.forEach(function(point) {
 
@@ -219,10 +203,8 @@ function showService(service) {
             <p>${point}</p>
         `;
 
-        list.appendChild(item);
-
+        modalList.appendChild(item);
     });
-
 
     modal.classList.add("active");
 
@@ -249,7 +231,7 @@ function closeService() {
 
 
 // ==========================================
-// CLOSE WHEN CLICKING OUTSIDE
+// SERVICE MODAL EVENTS
 // ==========================================
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -272,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // ==========================================
-// CLOSE WITH ESCAPE KEY
+// ESCAPE KEY
 // ==========================================
 
 document.addEventListener("keydown", function(event) {
